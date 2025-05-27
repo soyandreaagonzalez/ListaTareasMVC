@@ -1,0 +1,55 @@
+﻿@model List<ListaTareasMVC.Models.Tarea>
+
+@{
+    ViewData["Title"] = "Mi Lista de Tareas";
+}
+
+<div class="container">
+    <div class="card mx-auto" style="max-width: 700px;">
+        <div class="card-header text-center">
+            <h3><i class="bi bi-check2-square"></i> Mi Lista de Tareas</h3>
+        </div>
+
+        <div class="card-body">
+            <form asp-action="Agregar" method="post" class="d-flex gap-3 mb-4">
+                <input type="text" name="descripcion" class="form-control form-control-lg" placeholder="¿Qué necesitas hacer?" required />
+                <button type="submit" class="btn btn-primary btn-lg">
+                    <i class="bi bi-plus-circle-fill"></i>
+                </button>
+            </form>
+
+            @if (Model.Count == 0)
+            {
+                <div class="text-center text-muted">✨ ¡No hay tareas aún! Agrega una para comenzar.</div>
+            }
+            else
+            {
+                <ul class="list-group list-group-flush">
+                    @foreach (var tarea in Model)
+                    {
+                        <li class="list-group-item d-flex justify-content-between align-items-center shadow-sm">
+                            <div class="d-flex align-items-center gap-3">
+                                <form asp-action="Completar" method="post" class="m-0">
+                                    <input type="hidden" name="id" value="@tarea.Id" />
+                                    <button type="submit" class="btn btn-sm @((tarea.Completada ? "btn-success" : "btn-outline-secondary"))">
+                                        <i class="bi @(tarea.Completada ? "bi-check-circle-fill" : "bi-circle")"></i>
+                                    </button>
+                                </form>
+                                <span class="fs-5 @(tarea.Completada ? "completed" : "")">
+                                    @tarea.Descripcion
+                                </span>
+                            </div>
+
+                            <form asp-action="Eliminar" method="post" class="m-0">
+                                <input type="hidden" name="id" value="@tarea.Id" />
+                                <button type="submit" class="btn btn-outline-danger btn-sm">
+                                    <i class="bi bi-trash-fill"></i>
+                                </button>
+                            </form>
+                        </li>
+                    }
+                </ul>
+            }
+        </div>
+    </div>
+</div>

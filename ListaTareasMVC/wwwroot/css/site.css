@@ -1,0 +1,61 @@
+body {
+    background-color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    padding-top: 40px;
+}
+
+h3 {
+    font-weight: 600;
+}
+
+.card {
+    border: 1px solid #e0e0e0;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    color: #343a40;
+    padding: 1.5rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.card-body {
+    background-color: #ffffff;
+    padding: 2rem;
+}
+
+input[type="text"] {
+    border-radius: 10px;
+    border: 2px solid #dee2e6;
+    transition: all 0.3s ease;
+}
+
+    input[type="text"]:focus {
+        border-color: #0d6efd;
+        box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    }
+
+.btn {
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+    .btn:hover {
+        transform: scale(1.05);
+    }
+
+.list-group-item {
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    padding: 1rem 1.5rem;
+    background-color: #fdfdfd;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #adb5bd;
+}
